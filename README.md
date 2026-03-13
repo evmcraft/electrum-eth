@@ -1,39 +1,43 @@
 # Electrum ETH
 
-![Python](https://img.shields.io/badge/python-3.8%2B-3776AB?style=flat-square&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-2B2B2B?style=flat-square)
-![Type](https://img.shields.io/badge/type-ElectrumX%20server-4B5563?style=flat-square)
+[![Runtime](https://img.shields.io/badge/Runtime-Python_3.8%2B-1f2937?style=for-the-badge&labelColor=111827)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-374151?style=for-the-badge&labelColor=111827)](./LICENCE)
+[![Profile](https://img.shields.io/badge/Profile-ElectrumX_Server-4b5563?style=for-the-badge&labelColor=111827)](#system-profile)
 
-## Overview
+```text
+Electrum ETH :: asynchronous indexer and Electrum protocol service layer
+```
 
-Electrum ETH is a Python-based ElectrumX server implementation. It indexes blockchain data and exposes Electrum protocol services for lightweight clients.
+## System Profile
 
-## Capabilities
+Python service for blockchain indexing, mempool tracking, and Electrum-compatible client access.
 
-- Asynchronous Electrum protocol server
-- Blockchain indexing and transaction history lookup
-- Mempool tracking
-- Configurable TCP, SSL, WS, and WSS services
-- Daemon failover via multiple RPC endpoints
-- LevelDB or RocksDB backend support
-
-## Setup
-
-| Item | Value |
+| Scope | Value |
 | --- | --- |
-| Python | 3.8+ |
-| Base deps | `aiorpcX`, `attrs`, `plyvel`, `aiohttp` |
-| Install | `pip install -r requirements.txt` |
-| Package | `pip install .` |
+| Implementation | `electrumx/` |
+| Runtime model | `asyncio` |
+| Package | `e-x` |
+| Source version | `1.16.0` |
 
-Required environment variables:
+## Functional Surface
 
-- `COIN`
-- `DB_DIRECTORY`
-- `DAEMON_URL`
-- `SERVICES`
+- Address and transaction history indexing
+- Electrum protocol request handling
+- TCP, SSL, WS, and WSS service exposure
+- Multi-daemon RPC failover
+- LevelDB and RocksDB backend support
+- Auxiliary RPC and history maintenance tooling
 
-Example:
+## Bring-Up
+
+| Requirement | Value |
+| --- | --- |
+| Python | `3.8+` |
+| Install deps | `pip install -r requirements.txt` |
+| Install package | `pip install .` |
+| Primary entrypoint | `electrumx_server` |
+
+Required environment:
 
 ```bash
 export COIN=Bitcoin
@@ -42,27 +46,28 @@ export DAEMON_URL=http://user:pass@127.0.0.1:8332/
 export SERVICES=tcp://0.0.0.0:50001
 ```
 
-## Usage
+## Operator Paths
 
-Start the server:
+Start service:
 
 ```bash
 electrumx_server
 ```
 
-Useful commands:
+Available utilities:
 
-- `electrumx_rpc`
-- `electrumx_compact_history`
+| Command | Purpose |
+| --- | --- |
+| `electrumx_rpc` | Server RPC operations |
+| `electrumx_compact_history` | History compaction |
 
-## Technical Notes
+## Implementation Notes
 
-- Package name: `e-x`
-- Version in source: `1.16.0`
-- Main package: `electrumx/`
-- Docs: `docs/`
-- Test suite: `tests/`
+- Documentation set: `docs/`
+- Test coverage entry: `tests/`
+- Dependency base: `aiorpcX`, `attrs`, `plyvel`, `aiohttp`
+- Service behavior is controlled through environment variables, not CLI flags
 
-## License
+## License Reference
 
 MIT. See `LICENCE`.
