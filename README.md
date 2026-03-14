@@ -8,6 +8,8 @@
 Electrum ETH :: asynchronous indexer and Electrum protocol service layer
 ```
 
+![Electrum ETH setup screen](screen/setup.jpg)
+
 ## System Profile
 
 Python service for blockchain indexing, mempool tracking, and Electrum-compatible client access.
